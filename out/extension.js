@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.deactivate = exports.activate = void 0;
 const vscode = require("vscode");
 var logType;
+var readOnly = false;
 (function (logType) {
     logType[logType["V"] = 0] = "V";
     logType[logType["D"] = 1] = "D";
@@ -241,8 +242,9 @@ function activate(context) {
     registerFoldUnfoldCommands(context);
     wrapCmd(context, 'type', (args) => {
         // Do not let edits.  TODO: Should also stop Ctrl-V, Backspace delete
-        let readOnly = vscode.workspace.getConfiguration('logcatplusplus');
-        if (!readOnly) {
+        var config = vscode.workspace.getConfiguration('logcatplusplus');
+            readOnly = config.get('readOnlyFile', false);
+        if (readOnly != true) {
             vscode.commands.executeCommand('default:type', { text: args.text });
         }
     });
@@ -250,8 +252,8 @@ function activate(context) {
     vscode.languages.registerHoverProvider('logcat', {
         provideHover(document, position, token) {
             // Get the 6th token (COMP name) without trailing ':'
-            // Filter for lines with this COMP 
-            //	TODO: Gather stats 
+            // Filter for lines with this COMP
+            //	TODO: Gather stats
             //   #errors, #warnings etc
             //   #proc (Proc ids), #threads (threadIds) etc
             //   #start time, #last time etc

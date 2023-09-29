@@ -194,7 +194,7 @@
 			"properties": {
 				"logcatplusplus.readOnlyFile": {
 					"type": "boolean",
-					"default": true,
+					"default": false,
 					"description": "Treat as Read-Only file, and prevent editing."
 				}
 			}
