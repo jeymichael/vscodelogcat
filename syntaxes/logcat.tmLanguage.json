@@ -1,0 +1,72 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "logcat",
+	"patterns": [
+		{
+			"include": "#logV"
+		},
+		{
+			"include": "#logD"
+		},
+		{
+			"include": "#logI"
+		},
+		{
+			"include": "#logW"
+		},
+		{
+			"include": "#logE"
+		},
+		{
+			"include": "#logF"
+		},
+		{
+			"include": "#logS"
+		}
+	],
+	"repository": {
+		"logV": {
+			"patterns": [{
+				"name": "comment.double.logcat",
+				"match": "[\\S]+\\s+[\\S]+\\s+[\\S]+\\s+[\\S]+\\s+V\\s+.*"
+			}]
+		},
+		"logD": {
+			"patterns": [{
+				"name": "variable.quoted.logcat",
+				"match": "[\\S]+\\s+[\\S]+\\s+[\\S]+\\s+[\\S]+\\s+D\\s+.*"
+			}]
+		},
+		"logI": {
+			"patterns": [{
+				"name": "keyword.double.logcat",
+				"match": "[\\S]+\\s+[\\S]+\\s+[\\S]+\\s+[\\S]+\\s+I\\s+.*"
+			}]
+		},
+		"logW": {
+			"patterns": [{
+				"name": "entity.name.function.logcat",
+				"match": "[\\S]+\\s+[\\S]+\\s+[\\S]+\\s+[\\S]+\\s+W\\s+.*"
+			}]
+		},
+		"logE": {
+			"patterns": [{
+				"name": "string.quoted.double.logcat",
+				"match": "[\\S]+\\s+[\\S]+\\s+[\\S]+\\s+[\\S]+\\s+E\\s+.*"
+			}]
+		},
+		"logF": {
+			"patterns": [{
+				"name": "keyword.control.logcat",
+				"match": "[\\S]+\\s+[\\S]+\\s+[\\S]+\\s+[\\S]+\\s+F\\s+.*"
+			}]
+		},
+		"logS": {
+			"patterns": [{
+				"name": "entity.name.scope-resolution.logcat",
+				"match": "[\\S]+\\s+[\\S]+\\s+[\\S]+\\s+[\\S]+\\s+S\\s+.*"
+			}]
+		}
+	},
+	"scopeName": "source.logcat"
+}

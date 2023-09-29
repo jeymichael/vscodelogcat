@@ -15,7 +15,7 @@ The standard hotkey for folding-all sections, Ctrl-K followed by Ctrl-0 would fo
 
 Right click on the editor to Fold/Unfold all blocks of a partcular type in the entire log file.
 
-![demo](images/TutorialFold.gif)
+![demo](https://raw.githubusercontent.com/jeymichael/vscodelogcat/main/images/TutorialFold.gif)
 
 
 ### Highlights
@@ -25,12 +25,12 @@ Right click and select the context menu for the highlights on the logcat file.  
 			/^([\S]+\s+){4}F DEBUG   : signal /
 			/^([\S]+\s+){4}E .*Exception:/
 
-![demo](images/TutorialHighlights.gif)
+![demo](https://raw.githubusercontent.com/jeymichael/vscodelogcat/main/images/TutorialHighlights.gif)
 
 
 ### Hover
 Hover the mouse on top of the tagname in the log line, and the complete log messages for that tagname would be displayed inside the hover window.
-![demo](images/TutorialHover.gif)
+![demo](https://raw.githubusercontent.com/jeymichael/vscodelogcat/main/images/TutorialHover.gif)
 
 
 ## Experimental feature
@@ -63,3 +63,6 @@ Initial release
 * Added hover UI for the log tags
 * Added logcat Highlights feature, to show interesting exceptions in the Peek Window
 * Added Tutorial Gifs
+
+### 0.0.4
+* Fix Tutorial images path

@@ -1,0 +1,237 @@
+{
+	"name": "logcatplusplus",
+	"displayName": "logcat++",
+	"description": "View logcat files with folding, colors etc",
+	"version": "0.0.2",
+	"publisher": "JeyMichaelraj",
+	"icon": "images/logcat++128x128.png",
+	"engines": {
+		"vscode": "^1.60.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onLanguage:logcat"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "editor.printReferences",
+				"title": "Show All References"
+			},
+			{
+				"command": "logcatplusplus.DiagnoseLogcat",
+				"title": "logcat++: Diagnose logcat"
+			},
+			{
+				"command": "logcatplusplus.Highlights",
+				"title": "logcat++: Show Highlights"
+			},
+			{
+				"command": "logcatplusplus.FoldVerbose",
+				"title": "logcat++: Fold Verbose"
+			},
+			{
+				"command": "logcatplusplus.FoldDebug",
+				"title": "logcat++: Fold Debug"
+			},
+			{
+				"command": "logcatplusplus.FoldInfo",
+				"title": "logcat++: Fold Info"
+			},
+			{
+				"command": "logcatplusplus.FoldWarning",
+				"title": "logcat++: Fold Warning"
+			},
+			{
+				"command": "logcatplusplus.FoldError",
+				"title": "logcat++: Fold Error"
+			},
+			{
+				"command": "logcatplusplus.FoldFatal",
+				"title": "logcat++: Fold Fatal"
+			},
+			{
+				"command": "logcatplusplus.UnfoldVerbose",
+				"title": "logcat++: Unfold Verbose"
+			},
+			{
+				"command": "logcatplusplus.UnfoldDebug",
+				"title": "logcat++: Unfold Debug"
+			},
+			{
+				"command": "logcatplusplus.UnfoldInfo",
+				"title": "logcat++: Unfold Info"
+			},
+			{
+				"command": "logcatplusplus.UnfoldWarning",
+				"title": "logcat++: Unfold Warning"
+			},
+			{
+				"command": "logcatplusplus.UnfoldError",
+				"title": "logcat++: Unfold Error"
+			},
+			{
+				"command": "logcatplusplus.UnfoldFatal",
+				"title": "logcat++: Unfold Fatal"
+			}
+		],
+		"submenus": [
+			{
+			  "id": "fold",
+			  "label": "Fold"
+			},
+			{
+				"id": "unfold",
+				"label": "Unfold"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"command": "editor.printReferences",
+					"when": "editorHasReferenceProvider",
+					"group": "navigation@4"
+				},
+				{
+					"command": "logcatplusplus.DiagnoseLogcat",
+					"group": "navigation@1",
+					"when": "editorLangId == logcat"
+				},
+				{
+					"command": "logcatplusplus.Highlights",
+					"group": "navigation@2",
+					"when": "editorLangId == logcat"
+				},
+				{
+					"submenu":"fold",
+					"group": "navigation@3",
+					"when": "editorLangId == logcat"
+				},
+				{
+					"submenu":"unfold",
+					"group": "navigation@4",
+					"when": "editorLangId == logcat"
+				}
+			],
+			"fold": [
+				{
+					"command": "logcatplusplus.FoldVerbose",
+					"group": "navigation@2.1"
+				},
+				{
+					"command": "logcatplusplus.FoldDebug",
+					"group": "navigation@2.2"
+				},
+				{
+					"command": "logcatplusplus.FoldInfo",
+					"group": "navigation@2.3"
+				},
+				{
+					"command": "logcatplusplus.FoldWarning",
+					"group": "navigation@2.4"
+				},
+				{
+					"command": "logcatplusplus.FoldError",
+					"group": "navigation@2.5"
+				},
+				{
+					"command": "logcatplusplus.FoldFatal",
+					"group": "navigation@2.6"
+				}
+			],
+			"unfold": [
+				{
+					"command": "logcatplusplus.UnfoldVerbose",
+					"group": "navigation@3.1"
+				},
+				{
+					"command": "logcatplusplus.UnfoldDebug",
+					"group": "navigation@3.2"
+				},
+				{
+					"command": "logcatplusplus.UnfoldInfo",
+					"group": "navigation@3.3"
+				},
+				{
+					"command": "logcatplusplus.UnfoldWarning",
+					"group": "navigation@3.4"
+				},
+				{
+					"command": "logcatplusplus.UnfoldError",
+					"group": "navigation@3.5"
+				},
+				{
+					"command": "logcatplusplus.UnfoldFatal",
+					"group": "navigation@3.6"
+				}
+			]
+		},
+		"languages": [
+            {
+                "id": "logcat",
+                "aliases": [
+                    "logcat",
+                    "logcat"
+                ],
+                "extensions": [
+                    "logcat"
+                ]
+            },
+			{
+				"id": "locations",
+				"aliases": [
+					"Locations"
+				],
+				"extensions": [
+					".locations"
+				]
+			}
+        ],
+        "grammars": [
+            {
+                "language": "logcat",
+                "scopeName": "source.logcat",
+                "path": "./syntaxes/logcat.tmLanguage.json"
+            },
+			{
+				"language": "locations",
+				"path": "./syntaxes/locations.json",
+				"scopeName": "source.locations"
+			}
+        ],
+		"configuration": {
+			"title": "logcatplusplus",
+			"properties": {
+				"logcatplusplus.readOnlyFile": {
+					"type": "boolean",
+					"default": true,
+					"description": "Treat as Read-Only file, and prevent editing."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.60.0",
+		"@types/glob": "^7.1.4",
+		"@types/mocha": "^9.0.0",
+		"@types/node": "14.x",
+		"@typescript-eslint/eslint-plugin": "^4.31.1",
+		"@typescript-eslint/parser": "^4.31.1",
+		"eslint": "^7.32.0",
+		"glob": "^7.1.7",
+		"mocha": "^9.1.1",
+		"typescript": "^4.4.3",
+		"@vscode/test-electron": "^1.6.2"
+	}
+}
