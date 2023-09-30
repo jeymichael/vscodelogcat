@@ -63,3 +63,9 @@ Initial release
 * Added hover UI for the log tags
 * Added logcat Highlights feature, to show interesting exceptions in the Peek Window
 * Added Tutorial Gifs
+
+### 0.0.4
+* Fix Tutorial images path
+### 0.0.5
+* Experimental ReadOnly feature is defaulted to OFF
+
